@@ -13,7 +13,7 @@ public class GameScreen extends ScreenAdapter {
 	private Texture gemImg;
 	private GemGame gemGame;
 	private Gem gem;
-	private ScreenAdapter worldRenderer;
+	private WorldRenderer worldRenderer;
 	
  
     public GameScreen(GemGame gemGame) {
@@ -21,6 +21,7 @@ public class GameScreen extends ScreenAdapter {
         gemImg = new Texture("soldierright.png");
         world = new World(gemGame);
         gem = world.getGem();
+        worldRenderer = new WorldRenderer(gemGame, world);
     }
     @Override
     public void render(float delta) {
