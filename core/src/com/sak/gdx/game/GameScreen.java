@@ -18,7 +18,6 @@ public class GameScreen extends ScreenAdapter {
  
     public GameScreen(GemGame gemGame) {
         this.gemGame = gemGame;
-        gemImg = new Texture("soldierright.png");
         world = new World(gemGame);
         gem = world.getGem();
         worldRenderer = new WorldRenderer(gemGame, world);
