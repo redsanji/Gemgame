@@ -57,5 +57,7 @@ public class GameScreen extends ScreenAdapter {
         	gem.setNextDirection(Gem.DIRECTION_STILL);
         }
     }
+    
+ 
 
 }

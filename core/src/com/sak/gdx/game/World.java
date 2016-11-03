@@ -6,9 +6,9 @@ public class World {
     private Maze maze;
  
     World(GemGame gemGame) {
-    	gem = new Gem(60,60);
+    	maze = new Maze();
+    	gem = new Gem(60,60,maze);
         this.gemGame = gemGame;
-        maze = new Maze();
  
     }
  
