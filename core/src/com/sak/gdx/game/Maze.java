@@ -3,8 +3,8 @@ package com.sak.gdx.game;
 public class Maze {
 	private String[] MAP = new String [] {
             "&&&&&&&&&&&&&&&&&&&&",
-            "###################&",
-            "########....#######&",
+            "&%#################&",
+            "&%######....#######&",
             "&#######....#######&",
             "&#######....#######&",
             "&##################&",
@@ -12,8 +12,8 @@ public class Maze {
             "&#############...##&",
             "&#############...##&",
             "&#############...##&",
-            "&###################",
-            "&###################",
+            "&#################$$",
+            "&#################$$",
             "&&&&&&&&&&&&&&&&&&&&"    
     };
 	private int height;
@@ -34,12 +34,17 @@ public class Maze {
     public boolean hasSandAt(int r, int c) {
         return MAP[r].charAt(c) == '#';
     }
- 
     public boolean hasWaterAt(int r, int c) {
         return MAP[r].charAt(c) == '.';
     }
     public boolean hasWallAt(int r, int c){
     	return MAP[r].charAt(c) == '&';
+    }
+    public boolean hasSaveAt(int r, int c){
+    	return MAP[r].charAt(c) == '$';
+    }
+    public boolean hasStartAt(int r, int c){
+    	return MAP[r].charAt(c) == '%';
     }
 
 }

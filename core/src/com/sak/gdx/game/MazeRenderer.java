@@ -10,6 +10,8 @@ public class MazeRenderer {
 	 private Texture sandImage;
 	 private Texture waterImage;
 	 private Texture wallImage;
+	 private Texture grassImage;
+	 private Texture startImage;
 	 
 	    public MazeRenderer(SpriteBatch batch, Maze maze) {
 	        this.maze = maze;
@@ -17,6 +19,8 @@ public class MazeRenderer {
 	        sandImage = new Texture("sand.png");
 	        waterImage = new Texture("water.png");
 	        wallImage = new Texture("brick.png");
+	        grassImage = new Texture("grass.png");
+	        startImage = new Texture("red.png");
 	    }
 	 
 	    public void render() {
@@ -33,6 +37,10 @@ public class MazeRenderer {
 	                    batch.draw(waterImage, x, y);
 	                } else if(maze.hasWallAt(r,c)){
 	                	batch.draw(wallImage, x, y);
+	                } else if(maze.hasSaveAt(r,c)){
+	                	batch.draw(grassImage, x, y);
+	                } else if(maze.hasStartAt(r,c)){
+	                	batch.draw(startImage, x, y);
 	                }
 	            }
 	        }
