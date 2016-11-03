@@ -7,13 +7,13 @@ public class MazeRenderer {
 	
 	 private Maze maze;
 	 private SpriteBatch batch;
-	 private Texture wallImage;
+	 private Texture sandImage;
 	 private Texture waterImage;   
 	 
 	    public MazeRenderer(SpriteBatch batch, Maze maze) {
 	        this.maze = maze;
 	        this.batch = batch;
-	        wallImage = new Texture("sand.png");
+	        sandImage = new Texture("sand.png");
 	        waterImage = new Texture("water.png");
 	    }
 	 
@@ -21,12 +21,13 @@ public class MazeRenderer {
 	    	batch.begin();
 	        for(int r = 0; r < maze.getHeight(); r++) {
 	            for(int c = 0; c < maze.getWidth(); c++) {
-	                int x = c * 40;
-	                int y = GemGame.HEIGHT - (r * 40) - 40;
+	            	  int x = c * WorldRenderer.BLOCK_SIZE;
+	                  int y = GemGame.HEIGHT - 
+	                          (r * WorldRenderer.BLOCK_SIZE) - WorldRenderer.BLOCK_SIZE;
 	 
-	                if(maze.hasWallAt(r, c)) {
-	                    batch.draw(wallImage, x, y);
-	                } else if(maze.hasDotAt(r, c)) {
+	                if(maze.hasSandAt(r, c)) {
+	                    batch.draw(sandImage, x, y);
+	                } else if(maze.hasWaterAt(r, c)) {
 	                    batch.draw(waterImage, x, y);
 	                }
 	            }

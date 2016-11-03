@@ -32,22 +32,31 @@ public class GameScreen extends ScreenAdapter {
         
     }
     private void update(float delta) {
+    	updatePacmanDirection();
+    	world.update(delta);
+    }
+    private void updatePacmanDirection() {
+    	Gem gem = world.getGem();
     	if(Gdx.input.isKeyPressed(Keys.UP)) {
     		gemImg = new Texture("soldierup.png");
-    		gem.move(Gem.DIRECTION_UP);
+    		gem.setNextDirection(Gem.DIRECTION_UP);
 	        }
 		else if(Gdx.input.isKeyPressed(Keys.LEFT)) {
 			gemImg = new Texture("soldierleft.png");
-			gem.move(Gem.DIRECTION_LEFT);
+			gem.setNextDirection(Gem.DIRECTION_LEFT);
          }
         else if(Gdx.input.isKeyPressed(Keys.RIGHT)) {
         	gemImg = new Texture("soldierright.png");
-        	gem.move(Gem.DIRECTION_RIGHT);
+        	gem.setNextDirection(Gem.DIRECTION_RIGHT);
          }
         else if(Gdx.input.isKeyPressed(Keys.DOWN)) {
         	gemImg = new Texture("soldierdown.png");
-        	gem.move(Gem.DIRECTION_DOWN);
+        	gem.setNextDirection(Gem.DIRECTION_DOWN);
          }
+        else
+        {
+        	gem.setNextDirection(Gem.DIRECTION_STILL);
+        }
     }
 
 }

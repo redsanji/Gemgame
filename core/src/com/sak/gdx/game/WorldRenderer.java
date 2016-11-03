@@ -12,6 +12,7 @@ public class WorldRenderer {
 	private World world;
 	private Texture gemImg;
 	private MazeRenderer mazeRenderer;
+	public static final int BLOCK_SIZE = 40;
 
 	public WorldRenderer(GemGame gemGame, World world) {
     this.gemGame = gemGame;
@@ -25,9 +26,10 @@ public class WorldRenderer {
 public void render(float delta) {
 	mazeRenderer.render();
     SpriteBatch batch = gemGame.batch;
-    batch.begin();
     Vector2 pos = world.getGem().getPosition();
-    batch.draw(gemImg, pos.x, pos.y);
+    batch.begin();
+    batch.draw(gemImg, pos.x - BLOCK_SIZE/2, 
+    GemGame.HEIGHT - pos.y - BLOCK_SIZE/2);
     batch.end();
 }
 

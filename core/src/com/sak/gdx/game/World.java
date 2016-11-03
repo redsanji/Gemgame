@@ -6,10 +6,10 @@ public class World {
     private Maze maze;
  
     World(GemGame gemGame) {
+    	gem = new Gem(60,60);
         this.gemGame = gemGame;
         maze = new Maze();
  
-        gem = new Gem(100,100);
     }
  
     Gem getGem() {
@@ -17,5 +17,8 @@ public class World {
     }
     Maze getMaze() {
         return maze;
+    }
+    public void update(float delta) {
+        gem.update();
     }
 }
