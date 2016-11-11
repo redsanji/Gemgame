@@ -18,9 +18,7 @@ public class WorldRenderer {
     this.gemGame = gemGame;
     SpriteBatch batch = gemGame.batch;
     mazeRenderer = new MazeRenderer(gemGame.batch, world.getMaze());
-
     this.world = world;
-
     gemImg = new Texture("soldierright.png");
 }
 public void render(float delta) {

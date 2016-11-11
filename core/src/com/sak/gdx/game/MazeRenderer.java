@@ -28,9 +28,7 @@ public class MazeRenderer {
 	        for(int r = 0; r < maze.getHeight(); r++) {
 	            for(int c = 0; c < maze.getWidth(); c++) {
 	            	  int x = c * WorldRenderer.BLOCK_SIZE;
-	                  int y = GemGame.HEIGHT - 
-	                          (r * WorldRenderer.BLOCK_SIZE) - WorldRenderer.BLOCK_SIZE;
-	 
+	                  int y = GemGame.HEIGHT - (r * WorldRenderer.BLOCK_SIZE) - WorldRenderer.BLOCK_SIZE;	 
 	                if(maze.hasSandAt(r, c)) {
 	                    batch.draw(sandImage, x, y);
 	                } else if(maze.hasWaterAt(r, c)) {

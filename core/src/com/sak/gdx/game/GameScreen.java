@@ -31,10 +31,10 @@ public class GameScreen extends ScreenAdapter {
         
     }
     private void update(float delta) {
-    	updatePacmanDirection();
+    	updateGemDirection();
     	world.update(delta);
     }
-    private void updatePacmanDirection() {
+    private void updateGemDirection() {
     	Gem gem = world.getGem();
     	if(Gdx.input.isKeyPressed(Keys.UP)) {
     		gemImg = new Texture("soldierup.png");
