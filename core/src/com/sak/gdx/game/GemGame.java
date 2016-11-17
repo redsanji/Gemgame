@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.MathUtils;
 
 public class GemGame extends Game {
     public static SpriteBatch batch;
-    public static final int HEIGHT = 520;
+    public static final int HEIGHT = 1000;
     public static final int WIDTH = 800;
     private Music music;
     public Gem gem;

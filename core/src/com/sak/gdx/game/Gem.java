@@ -49,7 +49,8 @@ public class Gem {
         if(isAtCenter()) {
             if(canMoveInDirection(nextDirection)) {
                 currentDirection = nextDirection;    
-            } else {
+            }
+            else {
                 currentDirection = DIRECTION_STILL;    
             }
         }
@@ -75,19 +76,17 @@ public class Gem {
 		if(maze.hasWallAt(newRow, newCol))
         {
         	return false;
+        } else{ 
+        	return true;
         }
- 
-        return true;
     }
-    public boolean winthegame(int dir) {
+    public void winthegame(int dir) {
         int newRow = getRow()+DIR_OFFSETS[nextDirection][1]; 
         int newCol = getColumn()+DIR_OFFSETS[nextDirection][0];
 		if(maze.hasSaveAt(newRow, newCol))
         {		
-        	return false;
+			drawWinner(1);
         }
- 
-        return true;
     }
     private void drawWinner(int winner) { 
     	youwinner = new Texture("winner.png");
