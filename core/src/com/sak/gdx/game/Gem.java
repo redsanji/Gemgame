@@ -91,7 +91,7 @@ public class Gem {
     private void drawWinner(int winner) { 
     	youwinner = new Texture("winner.png");
     	if(winner==1){
-    		batch.draw(youwinner, 260, 200);
+    		batch.draw(youwinner, 600, 450);
     	}
     }  
 }
