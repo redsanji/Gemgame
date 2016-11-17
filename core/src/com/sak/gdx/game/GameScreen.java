@@ -6,15 +6,22 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
 public class GameScreen extends ScreenAdapter {
 	World world; 
+	static SpriteBatch batch;
+	Texture player;
+	static Texture q,a,z,r,d,b;
+	public static int winner;
+	public static long time = System.currentTimeMillis();
+    public static long randomNum = time+MathUtils.random(2000, 3000);
+    public static final int buttonP1 = MathUtils.random(1, 6);
 	private Texture gemImg;
 	private GemGame gemGame;
 	private Gem gem;
-	private WorldRenderer worldRenderer;
-	
+	private WorldRenderer worldRenderer;	
  
     public GameScreen(GemGame gemGame) {
         this.gemGame = gemGame;

@@ -1,8 +1,12 @@
 package com.sak.gdx.game;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
 public class Gem {
+	public static boolean winthegame;
+	static SpriteBatch batch; 
 	private Vector2 position;
 	private int currentDirection;
     private int nextDirection;
@@ -13,6 +17,9 @@ public class Gem {
     public static final int DIRECTION_LEFT = 4;
     public static final int DIRECTION_STILL = 0;
     public static final int SPEED = 5;
+    private Texture youwinner;
+	private int winner;
+	public GemGame gemgame;
     private static final int [][] DIR_OFFSETS = new int [][] {
         {0,0},
         {0,-1},
@@ -72,4 +79,20 @@ public class Gem {
  
         return true;
     }
+    public boolean winthegame(int dir) {
+        int newRow = getRow()+DIR_OFFSETS[nextDirection][1]; 
+        int newCol = getColumn()+DIR_OFFSETS[nextDirection][0];
+		if(maze.hasSaveAt(newRow, newCol))
+        {		
+        	return false;
+        }
+ 
+        return true;
+    }
+    private void drawWinner(int winner) { 
+    	youwinner = new Texture("winner.png");
+    	if(winner==1){
+    		batch.draw(youwinner, 260, 200);
+    	}
+    }  
 }

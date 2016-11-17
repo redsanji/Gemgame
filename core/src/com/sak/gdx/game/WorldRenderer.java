@@ -12,6 +12,7 @@ public class WorldRenderer {
 	private World world;
 	private Texture gemImg;
 	private MazeRenderer mazeRenderer;
+	private Texture batch;
 	public static final int BLOCK_SIZE = 40;
 
 	public WorldRenderer(GemGame gemGame, World world) {
