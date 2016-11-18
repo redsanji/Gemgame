@@ -6,6 +6,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 public class GemGame extends Game {
     public static SpriteBatch batch;
@@ -19,12 +20,16 @@ public class GemGame extends Game {
 	public static long time = System.currentTimeMillis();
     public static long randomNum = time+MathUtils.random(2000, 3000);
     public static final int button = MathUtils.random(1, 6);
+    private int worldTimer;
+    private float timeCount = 30;
+    private Label timeLabel;
+    private Label worldLabel;
+	private Label countdownLabel;
     
  
     @Override
     public void create () {
         batch = new SpriteBatch();
-		youwinner = new Texture("winner.png");
         setScreen(new GameScreen(this));
         music = Gdx.audio.newMusic(Gdx.files.internal("Realm's Awakening - Valkyrie Crusade Music Extended.mp3"));
         music.setLooping(true);
@@ -36,12 +41,7 @@ public class GemGame extends Game {
     public void render () {
         super.render();
     }
-    
-    private void drawWinner(int winner) { 
-    	if(winner==1){
-    		batch.draw(youwinner, 260, 200);
-    	}
-    }    
+       
  
     @Override
     public void dispose () {

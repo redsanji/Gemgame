@@ -54,6 +54,9 @@ public class Gem {
                 currentDirection = DIRECTION_STILL;    
             }
         }
+        if (winthegame(1)){
+        	drawWinner(1);
+        }
         position.x += SPEED * DIR_OFFSETS[currentDirection][0];
         position.y += SPEED * DIR_OFFSETS[currentDirection][1];
     }
@@ -80,13 +83,14 @@ public class Gem {
         	return true;
         }
     }
-    public void winthegame(int dir) {
+    public boolean winthegame(int dir) {
         int newRow = getRow()+DIR_OFFSETS[nextDirection][1]; 
         int newCol = getColumn()+DIR_OFFSETS[nextDirection][0];
 		if(maze.hasSaveAt(newRow, newCol))
         {		
-			drawWinner(1);
+			return true;
         }
+		return false;
     }
     private void drawWinner(int winner) { 
     	youwinner = new Texture("winner.png");
