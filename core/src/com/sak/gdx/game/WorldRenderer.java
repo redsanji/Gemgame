@@ -15,7 +15,7 @@ public class WorldRenderer {
 	private MazeRenderer mazeRenderer;
 	private Texture batch;
 	public static final int BLOCK_SIZE = 40;
-	private float timestart =3f;
+	private float timestart =15f;
 	private BitmapFont font;
 
 
